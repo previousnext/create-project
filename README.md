@@ -5,5 +5,5 @@ Creates a new project using the pnx-project template. While this script it publi
 ## Running
 
 ```bash
-bash <(curl -sSL http://pnx.me/pnx-proj)
+bash <(curl -sSL http://pnx.me/create-pnx-project)
 ```
