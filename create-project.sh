@@ -10,7 +10,7 @@ if [ -d "$APP_NAME" ]; then
   exit 1
 fi
 
-git clone git@github.com:previousnext/pnx-project.git $APP_NAME
+git clone --depth 1 git@github.com:previousnext/pnx-project.git $APP_NAME
 cd $APP_NAME
 rm -rf .git
 ./scripts/rename-project.sh $APP_NAME
