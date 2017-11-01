@@ -14,6 +14,7 @@ git clone --depth 1 git@github.com:previousnext/pnx-project.git $APP_NAME
 cd $APP_NAME
 rm -rf .git
 ./scripts/rename-project.sh $APP_NAME
+rm ./scripts/rename-project.sh
 make init-local
 git init
 git add .
