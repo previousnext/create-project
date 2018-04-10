@@ -28,8 +28,16 @@ echo " |  __/| |\  |/  \  |  __/| | | (_) | |  __/ (__| |_ ";
 echo " |_|   |_| \_/_/\_\ |_|   |_|  \___// |\___|\___|\__|";
 echo "                                  |__/               ";
 
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  DOCKER_COMPOSE_ARGS="-f docker-compose.linux.yml"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  DOCKER_COMPOSE_ARGS="-f docker-compose.osx.yml"
+else
+  DOCKER_COMPOSE_ARGS=""
+fi
+
 echo "Next steps:"
 echo ""
 echo "cd $APP_NAME"
-echo "vagrant up"
-echo "open http://$APP_NAME.dev/install.php"
+echo "docker-compose ${DOCKER_COMPOSE_ARGS} up -d"
+echo "open http://127.0.0.1/install.php"
