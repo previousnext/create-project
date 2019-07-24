@@ -15,10 +15,10 @@ cd $APP_NAME
 rm -rf .git
 ./scripts/rename-project.sh $APP_NAME
 rm ./scripts/rename-project.sh
-make init-local
 git init
 git add .
 git commit -m "Initial commit"
+make composer
 
 echo "Congratulations! You just created a..."
 echo "  ____  _   ___  __  ____            _           _   ";
@@ -40,4 +40,9 @@ echo "Next steps:"
 echo ""
 echo "cd $APP_NAME"
 echo "docker-compose ${DOCKER_COMPOSE_ARGS} up -d"
-echo "open http://127.0.0.1/install.php"
+echo "docker-compose ${DOCKER_COMPOSE_ARGS} exec app bash"
+echo "./bin/drush site-install ${APP_NAME}_profile \
+  --site-name=$APP_NAME \
+  --site-mail=devnull+$APP_NAME@previousnext.com.au \
+  --account-name=$APP_NAME-admin \
+  -y"
