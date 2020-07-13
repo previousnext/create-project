@@ -29,9 +29,9 @@ echo " |_|   |_| \_/_/\_\ |_|   |_|  \___// |\___|\___|\__|";
 echo "                                  |__/               ";
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  DOCKER_COMPOSE_ARGS="-f docker-compose.linux.yml"
+  DOCKER_COMPOSE_ARGS="-f docker-compose.yml -f docker-compose.linux.yml"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-  DOCKER_COMPOSE_ARGS="-f docker-compose.osx.yml"
+  DOCKER_COMPOSE_ARGS="-f docker-compose.yml -f docker-compose.osx.yml"
 else
   DOCKER_COMPOSE_ARGS=""
 fi
