@@ -28,9 +28,7 @@ echo " |  __/| |\  |/  \  |  __/| | | (_) | |  __/ (__| |_ ";
 echo " |_|   |_| \_/_/\_\ |_|   |_|  \___// |\___|\___|\__|";
 echo "                                  |__/               ";
 
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  DOCKER_COMPOSE_ARGS="-f docker-compose.yml -f docker-compose.linux.yml"
-elif [[ "$OSTYPE" == "darwin"* ]]; then
+if [[ "$OSTYPE" == "darwin"* ]]; then
   DOCKER_COMPOSE_ARGS="-f docker-compose.yml -f docker-compose.osx.yml"
 else
   DOCKER_COMPOSE_ARGS=""
@@ -40,7 +38,7 @@ echo "Next steps:"
 echo ""
 echo "cd $APP_NAME"
 echo "docker-compose ${DOCKER_COMPOSE_ARGS} up -d"
-echo "docker-compose ${DOCKER_COMPOSE_ARGS} exec app bash"
+echo "docker-compose ${DOCKER_COMPOSE_ARGS} exec php-cli bash"
 echo "./bin/drush site-install ${APP_NAME}_profile \
   --site-name=$APP_NAME \
   --site-mail=devnull+$APP_NAME@previousnext.com.au \
